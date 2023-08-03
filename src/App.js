@@ -64,8 +64,8 @@ export default function App() {
 
         <Route path="/favs">
           <div className="flex flex-col gap-3">
-            {favs.length > 0 ? (
-              favs.map((item) => (
+            {favs?.length > 0 ? (
+              favs?.map((item) => (
                 <FavItem key={item.id} id={item.id} title={item.dialog} />
               ))
             ) : (
