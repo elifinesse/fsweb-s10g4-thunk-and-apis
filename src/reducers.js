@@ -7,16 +7,11 @@ import {
   GET_FAVS_FROM_LS,
 } from "./actions";
 import { toast } from "react-toastify";
+import { fetchAnother } from "./actions";
 
 const initial = {
   favs: readFavsFromLocalStorage() === null ? [] : readFavsFromLocalStorage(),
-  current: {
-    _id: "5cd96e05de30eff6ebcce7ec",
-    dialog: "Give us that! Deagol my love",
-    movie: "5cd95395de30eff6ebccde5d",
-    character: "5cd99d4bde30eff6ebccfe9e",
-    id: "5cd96e05de30eff6ebcce7ec",
-  },
+  current: {},
   error: "",
   loading: false,
 };
@@ -32,7 +27,7 @@ function readFavsFromLocalStorage() {
 export function myReducer(state = initial, action) {
   switch (action.type) {
     case FAV_ADD:
-      toast.success("🧝‍♀️Successfully added to favorites, precious!", {
+      toast.success("🧝‍♀️Successfully added to favorites, precious!💍", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: true,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Item from "./components/Item";
 import FavItem from "./components/FavItem";
@@ -15,6 +15,12 @@ export default function App() {
   function addToFavs(quote) {
     dispatch({ type: FAV_ADD, payload: quote });
   }
+  function generateQuote() {
+    dispatch(fetchAnother());
+  }
+  useEffect(() => {
+    generateQuote();
+  }, []);
 
   return (
     <div className="wrapper max-w-xl mx-auto px-4">
