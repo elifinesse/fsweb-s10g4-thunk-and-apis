@@ -8,7 +8,7 @@ import {
 } from "./actions";
 
 const initial = {
-  favs: [],
+  favs: readFavsFromLocalStorage(),
   current: {
     _id: "5cd96e05de30eff6ebcce7ec",
     dialog: "Give us that! Deagol my love",
@@ -31,6 +31,10 @@ function readFavsFromLocalStorage() {
 export function myReducer(state = initial, action) {
   switch (action.type) {
     case FAV_ADD:
+      writeFavsToLocalStorage({
+        ...state,
+        favs: [...state.favs, action.payload],
+      });
       return { ...state, favs: [...state.favs, action.payload] };
 
     case FAV_REMOVE:
